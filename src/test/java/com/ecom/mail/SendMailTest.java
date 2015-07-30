@@ -2,6 +2,8 @@ package com.ecom.mail;
 
 import static org.junit.Assert.assertTrue;
 
+import java.io.IOException;
+
 import javax.mail.Address;
 import javax.mail.MessagingException;
 import javax.mail.internet.AddressException;
@@ -41,6 +43,13 @@ public class SendMailTest {
 				new InternetAddress("prashant.sahu@globallogic.com") };
 		assertTrue(sendMail.sendMessage("Subject Testing", "Body content",
 				toAddresses));
+	}
+	
+	@Test
+	public void testSendMailAttachment() throws MessagingException, IOException {
+		Address[] toAddresses = { new InternetAddress(
+				"prashantsahu034@gmail.com") };
+		assertTrue(sendMail.sendMessage("Attachched sub", "Hello", toAddresses, "myfile1.txt"));
 	}
 
 }
